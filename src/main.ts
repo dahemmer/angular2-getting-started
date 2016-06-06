@@ -1,5 +1,4 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
-import { ContactsApp } from './app/contacts-app';
+import { ContactsComponent } from './app/contacts.component';
 
-bootstrap(ContactsApp);
-
+bootstrap(ContactsComponent);
