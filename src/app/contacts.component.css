@@ -1,0 +1,13 @@
+.empty,
+.filled {
+    padding: 5px;
+    color: white;
+}
+
+.empty {
+    background-color: red;
+}
+
+.filled {
+    background-color: green;
+}
