@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
+import { ContactsHeaderComponent } from './contacts-header';
 
 @Component({
+  moduleId: module.id,
   selector: 'dh-contacts',
-  templateUrl: 'app/contacts.component.html',
-  styleUrls: ['app/contacts.component.css']
+  templateUrl: 'contacts.component.html',
+  styleUrls: ['contacts.component.css'],
+  directives: [ContactsHeaderComponent]
 })
 export class ContactsComponent {
-  message = 'Hello World!';
-  numbers = [1, 2, 3, 4, 5];
 
-  changeMessage(message: string) {
-    this.message = message;
-  }
 }
