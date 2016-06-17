@@ -43,7 +43,7 @@
     Directive:
     <div [ngSwitch]="!message" [ngStyle]="{'background-color': message ? 'green' : 'red', 'color' : 'white', 'padding': '5px'}">
         <p *ngSwitchWhen="true">No message provided</p>
-        <p *ngSwitchWhen="false">Messageitle provided</p>
+        <p *ngSwitchWhen="false">Message provided</p>
         <p *ngSwitchDefault>Default</p>
     </div>
 </div>
