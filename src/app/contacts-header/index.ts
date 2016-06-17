@@ -1,1 +1,1 @@
-export { ContactsHeaderComponent } from './contacts-header.component';
+export * from './contacts-header.component';
