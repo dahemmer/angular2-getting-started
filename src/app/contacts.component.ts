@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
+  moduleId: module.id,
   selector: 'dh-contacts',
-  templateUrl: 'app/contacts.component.html',
-  styleUrls: ['app/contacts.component.css']
+  templateUrl: 'contacts.component.html',
+  styleUrls: ['contacts.component.css']
 })
 export class ContactsComponent {
   message = 'Hello World!';
