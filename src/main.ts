@@ -1,4 +1,9 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
-import { ContactsComponent } from './app/contacts.component';
+import { enableProdMode } from '@angular/core';
+import { ContactsComponent, environment } from './app/';
+
+if (environment.production) {
+  enableProdMode();
+}
 
 bootstrap(ContactsComponent);
