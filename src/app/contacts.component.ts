@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ContactsHeaderComponent } from './contacts-header';
-import { Contact } from './model/contact';
+import { Contact } from './model';
 
 @Component({
   moduleId: module.id,

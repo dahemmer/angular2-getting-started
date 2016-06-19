@@ -33,6 +33,7 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/contacts-header',
+  'app/model'
   /** @cli-barrel */
 ];
 
