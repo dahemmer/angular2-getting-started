@@ -1,1 +1,6 @@
 <dh-contacts-header></dh-contacts-header>
+<div class="collection">
+    <a *ngFor="let contact of contacts" class="collection-item">
+        {{contact.name}}
+    </a>
+</div>
