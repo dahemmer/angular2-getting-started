@@ -1,32 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ContactsHeaderComponent } from './contacts-header';
 import { Contact } from './model';
+import { ContactsService } from './service';
+import { Observable } from 'rxjs/Observable';
+import { HTTP_PROVIDERS } from '@angular/http';
 
 @Component({
   moduleId: module.id,
   selector: 'dh-contacts',
   templateUrl: 'contacts.component.html',
   styleUrls: ['contacts.component.css'],
-  directives: [ContactsHeaderComponent]
+  directives: [ContactsHeaderComponent],
+  providers: [ContactsService, HTTP_PROVIDERS]
 })
-export class ContactsComponent {
-  contact: Contact;
-  contacts: Array<Contact>;
+export class ContactsComponent implements OnInit {
+  contacts: Observable<Array<Contact>>;
 
-  constructor() {
-    this.contact = new Contact();
-    this.contact.name = 'John Doe';
-    this.contact.email = 'john.doe@mail.com';
+  constructor(private contactsService: ContactsService) {
+  }
 
-    this.contacts = new Array<Contact>();
-    this.contacts.push(this.contact);
-    this.contacts.push(<Contact>{
-      name: 'Jane Doe',
-      email: 'jane.doe@mail.com'
-    });
-    this.contacts.push(<Contact>{
-      name: 'Mike Doe',
-      email: 'mike.doe@mail.com'
-    });
+  ngOnInit() {
+    this.contacts = this.contactsService.getContacts();
   }
 }
