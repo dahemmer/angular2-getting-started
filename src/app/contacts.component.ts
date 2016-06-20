@@ -1,25 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ContactsHeaderComponent } from './contacts-header';
-import { Contact } from './model';
 import { ContactsService } from './service';
-import { Observable } from 'rxjs/Observable';
 import { HTTP_PROVIDERS } from '@angular/http';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
   moduleId: module.id,
   selector: 'dh-contacts',
   templateUrl: 'contacts.component.html',
   styleUrls: ['contacts.component.css'],
-  directives: [ContactsHeaderComponent],
+  directives: [ContactsHeaderComponent, ROUTER_DIRECTIVES],
   providers: [ContactsService, HTTP_PROVIDERS]
 })
-export class ContactsComponent implements OnInit {
-  contacts: Observable<Array<Contact>>;
+export class ContactsComponent {
 
-  constructor(private contactsService: ContactsService) {
-  }
-
-  ngOnInit() {
-    this.contacts = this.contactsService.getContacts();
-  }
 }
