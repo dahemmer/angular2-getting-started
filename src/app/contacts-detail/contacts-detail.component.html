@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col s12">
+        <div class="row">
+            <div class="input-field col s12">
+                <input [(ngModel)]="contact.name" id="name" type="text" class="validate">
+                <label class="active" for="name">Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input [(ngModel)]="contact.phone" id="phone" type="text" class="validate">
+                <label class="active" for="phone">Phone</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input [(ngModel)]="contact.email" id="email" type="text" class="validate">
+                <label class="active" for="email">Email</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input [(ngModel)]="contact.address.street" id="street" type="text" class="validate">
+                <label class="active" for="street">Street</label>
+            </div>
+            <div class="input-field col s6">
+                <input [(ngModel)]="contact.address.number" id="number" type="text" class="validate">
+                <label class="active" for="number">Number</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input [(ngModel)]="contact.address.zip" id="zip" type="text" class="validate">
+                <label class="active" for="zip">Zip</label>
+            </div>
+            <div class="input-field col s6">
+                <input [(ngModel)]="contact.address.city" id="city" type="text" class="validate">
+                <label class="active" for="city">City</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input [(ngModel)]="contact.address.country" id="country" type="text" class="validate">
+                <label class="active" for="country">Country</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <button type="button" class="btn" (click)="cancel(contact)">Cancel</button>
+                <button type="button" class="btn" (click)="save(contact)">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
