@@ -1,6 +1,6 @@
 var data = require('../data/contacts');
 
-var getNextId = () => data.length;
+var getNextId = () => data.length + 1;
 var isContact = (contact) => contact.name !== undefined;
 var isEmailAvailable = (email) => {
   var contact = data.find(contact => contact.email == email);
