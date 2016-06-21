@@ -12,18 +12,24 @@ import { ContactsService } from '../service';
 export class ContactsDetailComponent implements OnInit {
   private contact: Contact = <Contact>{ address: {} };
 
-  constructor(private route: ActivatedRoute,
-              private router: Router,
-              private contactsService: ContactsService) {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private contactsService: ContactsService) {
   }
 
   ngOnInit() {
     this.route.params
       .map(params => params['id'])
       .subscribe((id) => {
-          this.contactsService
-              .getContact(id)
-              .subscribe(contact => { this.contact = contact; console.log(this.contact); });
+        this.contactsService
+          .getContact(id)
+          .subscribe(contact => {
+            this.contact = contact;
+            if (contact.address === undefined) {
+              contact.address = {};
+            }
+          });
       });
   }
 
@@ -33,8 +39,8 @@ export class ContactsDetailComponent implements OnInit {
 
   save() {
     this.contactsService
-        .updateContact(this.contact)
-        .subscribe(() => this.navigateToContactsList());
+      .updateContact(this.contact)
+      .subscribe(() => this.navigateToContactsList());
   }
 
   private navigateToContactsList() {
