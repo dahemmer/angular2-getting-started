@@ -1,0 +1,60 @@
+<div class="row">
+  <form #form="ngForm" class="col s12" novalidate (ngSubmit)="createContact(form.value)">
+    <div class="row">
+      <div class="input-field col s12">
+        <input name="name" #name="ngForm" ngModel required minlength="3" [ngClass]="{'invalid': !name.valid && !name.pristine}">
+        <label class="active">Name</label>
+        <div *ngIf="name.errors && !name.pristine">
+          <p class="danger" *ngIf="name.errors.required">A name is required</p>
+          <p class="danger" *ngIf="name.errors.minlength">A name must have at least {{name.errors.minlength.requiredLength}} characters</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input name="phone" ngModel>
+        <label class="active">Phone</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input name="email" ngModel>
+        <label class="active">Email</label>
+      </div>
+    </div>
+    <div ngModelGroup="address">
+      <div class="row">
+        <div class="input-field col s6">
+          <input name="street" ngModel>
+          <label class="active">Street</label>
+        </div>
+        <div class="input-field col s6">
+          <input name="number" ngModel>
+          <label class="active">Number</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input name="zip" ngModel>
+          <label class="active">Zip</label>
+        </div>
+        <div class="input-field col s6">
+          <input name="city" ngModel>
+          <label class="active">City</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input name="country" ngModel>
+          <label class="active">Country</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <a class="btn" routerLink="">Cancel</a>
+        <input type="submit" class="btn" value="Create" [disabled]="!form.valid">
+      </div>
+    </div>
+  </form>
+</div>
