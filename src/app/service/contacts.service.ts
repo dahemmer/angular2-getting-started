@@ -23,7 +23,14 @@ export class ContactsService {
   updateContact(contact: Contact) {
     let url = `${this.API_ENDPOINT}/contacts/${contact.id}`;
     let data = JSON.stringify(contact);
-    let headers = new Headers({'Content-Type': 'application/json;charset=UTF-8'});
+    let headers = new Headers({ 'Content-Type': 'application/json;charset=UTF-8' });
     return this.http.put(url, data, { headers });
+  }
+
+  createContact(contact: Contact) {
+    let url = `${this.API_ENDPOINT}/contacts`;
+    let data = JSON.stringify(contact);
+    let headers = new Headers({ 'Content-Type': 'application/json;charset=UTF-8' });
+    return this.http.post(url, data, { headers });
   }
 }
