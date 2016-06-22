@@ -1,8 +1,8 @@
 <div class="row">
-  <form #form="ngForm" class="col s12" novalidate (ngSubmit)="createContact(form.value)">
+  <form [formGroup]="form" class="col s12" novalidate (ngSubmit)="createContact()">
     <div class="row">
       <div class="input-field col s12">
-        <input name="name" #name="ngForm" ngModel required minlength="3" [ngClass]="{'invalid': !name.valid && !name.pristine}">
+        <input formControlName="name" [ngClass]="{'invalid': !name.valid && !name.pristine}">
         <label class="active">Name</label>
         <div *ngIf="name.errors && !name.pristine">
           <p class="danger" *ngIf="name.errors.required">A name is required</p>
@@ -12,40 +12,40 @@
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input name="phone" ngModel>
+        <input formControlName="phone">
         <label class="active">Phone</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input name="email" ngModel>
+        <input formControlName="email">
         <label class="active">Email</label>
       </div>
     </div>
-    <div ngModelGroup="address">
+    <div formGroupName="address">
       <div class="row">
         <div class="input-field col s6">
-          <input name="street" ngModel>
+          <input formControlName="street">
           <label class="active">Street</label>
         </div>
         <div class="input-field col s6">
-          <input name="number" ngModel>
+          <input formControlName="number">
           <label class="active">Number</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input name="zip" ngModel>
+          <input formControlName="zip">
           <label class="active">Zip</label>
         </div>
         <div class="input-field col s6">
-          <input name="city" ngModel>
+          <input formControlName="city">
           <label class="active">City</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input name="country" ngModel>
+          <input formControlName="country">
           <label class="active">Country</label>
         </div>
       </div>
