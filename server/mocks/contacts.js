@@ -1,32 +1,11 @@
 var data = require('../data/contacts');
 
 var getNextId = () => data.length + 1;
-var isContact = (contact) => contact.name !== undefined;
-var isEmailAvailable = (email) => {
-  var contact = data.find(contact => contact.email == email);
-  return contact ? false : true;
-}
+var isValidContact = (contact) => contact.name !== undefined;
 
 module.exports = function (app) {
   app.get('/api/contacts', function (req, res) {
     res.json(data);
-  });
-
-  app.post('/api/contacts', function (req, res) {
-    if (isContact(req.body)) {
-      req.body.id = getNextId();
-      data.push(req.body);
-      res.json(req.body);
-    }
-    else {
-      res.status(404).json({ error: 'invalid structure' });
-    }
-  });
-
-  app.get('/api/search', function (req, res) {
-    var text = req.query.text;
-    var matches = data.filter(contact => contact.name.indexOf(text) > -1);
-    res.json(matches);
   });
 
   app.get('/api/contacts/:id', function (req, res) {
@@ -44,7 +23,14 @@ module.exports = function (app) {
     }
   });
 
-  app.get('/api/check-email', function (req, res) {
-    res.json({ available: isEmailAvailable(req.query.email)  })
+  app.post('/api/contacts', function (req, res) {
+    if (isValidContact(req.body)) {
+      req.body.id = getNextId();
+      data.push(req.body);
+      res.json(req.body);
+    }
+    else {
+      res.status(404).json({ error: 'invalid structure' });
+    }
   });
 };
