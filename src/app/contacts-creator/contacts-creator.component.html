@@ -18,8 +18,11 @@
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input formControlName="email">
+        <input formControlName="email" [ngClass]="{'invalid': !email.valid && !email.pristine}">
         <label class="active">Email</label>
+        <div *ngIf="email.errors && !email.pristine">
+          <p class="danger" *ngIf="email.errors.validateEmail">Please enter a valid email address!</p>
+        </div>
       </div>
     </div>
     <div formGroupName="address">

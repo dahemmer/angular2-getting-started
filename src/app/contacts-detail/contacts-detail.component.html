@@ -1,46 +1,50 @@
 <div class="row">
-    <div class="col s12">
+    <form class="col s12" #form="ngForm" novalidate>
         <div class="row">
             <div class="input-field col s12">
-                <input [(ngModel)]="contact.name" id="name" type="text" class="validate">
+                <input name="name" [(ngModel)]="contact.name">
                 <label class="active" for="name">Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input [(ngModel)]="contact.phone" id="phone" type="text" class="validate">
+                <input name="phone" [(ngModel)]="contact.phone">
                 <label class="active" for="phone">Phone</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input [(ngModel)]="contact.email" id="email" type="text" class="validate">
+                <input name="email" #email="ngForm" [(ngModel)]="contact.email" [ngClass]="{'invalid': !email.valid && !email.pristine}"
+                    validateEmail>
                 <label class="active" for="email">Email</label>
+                <div *ngIf="email.errors && !email.pristine">
+                    <p class="danger" *ngIf="email.errors.validateEmail">Please enter a valid email address</p>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <input [(ngModel)]="contact.address.street" id="street" type="text" class="validate">
+                <input name="street" [(ngModel)]="contact.address.street">
                 <label class="active" for="street">Street</label>
             </div>
             <div class="input-field col s6">
-                <input [(ngModel)]="contact.address.number" id="number" type="text" class="validate">
+                <input name="number" [(ngModel)]="contact.address.number">
                 <label class="active" for="number">Number</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <input [(ngModel)]="contact.address.zip" id="zip" type="text" class="validate">
+                <input name="zip" [(ngModel)]="contact.address.zip">
                 <label class="active" for="zip">Zip</label>
             </div>
             <div class="input-field col s6">
-                <input [(ngModel)]="contact.address.city" id="city" type="text" class="validate">
+                <input name="city" [(ngModel)]="contact.address.city">
                 <label class="active" for="city">City</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <input [(ngModel)]="contact.address.country" id="country" type="text" class="validate">
+                <input name="country" [(ngModel)]="contact.address.country">
                 <label class="active" for="country">Country</label>
             </div>
         </div>
@@ -51,5 +55,5 @@
                 <button type="button" class="btn" (click)="save(contact)">Save</button>
             </div>
         </div>
-    </div>
+    </form>
 </div>

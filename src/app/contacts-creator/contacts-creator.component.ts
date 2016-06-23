@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators, REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 import { ContactsService } from '../service';
+import { validateEmail } from '../validator';
 
 @Component({
   moduleId: module.id,
@@ -13,6 +14,7 @@ import { ContactsService } from '../service';
 export class ContactsCreatorComponent implements OnInit {
   form: FormGroup;
   name: AbstractControl;
+  email: AbstractControl;
 
   constructor(
     private contactsService: ContactsService,
@@ -25,7 +27,7 @@ export class ContactsCreatorComponent implements OnInit {
         Validators.required,
         Validators.minLength(3)
       ]),
-      email: new FormControl(),
+      email: new FormControl(null, validateEmail),
       phone: new FormControl(),
       address: new FormGroup({
         street: new FormControl(),
@@ -37,6 +39,7 @@ export class ContactsCreatorComponent implements OnInit {
     });
 
     this.name = this.form.controls['name'];
+    this.email = this.form.controls['email'];
   }
 
   createContact() {
