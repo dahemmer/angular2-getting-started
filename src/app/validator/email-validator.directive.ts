@@ -2,7 +2,7 @@ import { Directive, provide } from '@angular/core';
 import { FormControl, NG_VALIDATORS } from '@angular/forms';
 
 @Directive({
-  selector: '[validateEmail][ngModel],[validateEmail][formControl]',
+  selector: '[validateEmail]',
   providers: [
     provide(NG_VALIDATORS, {
       useValue: EmailValidator.validateEmail,
