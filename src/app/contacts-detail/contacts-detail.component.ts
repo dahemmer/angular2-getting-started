@@ -2,14 +2,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../model';
 import { ContactsService } from '../service';
-import { EmailValidatorDirective } from '../validator';
+import { EmailValidator } from '../validator';
 
 @Component({
   moduleId: module.id,
   selector: 'dh-contacts-detail',
   templateUrl: 'contacts-detail.component.html',
   styleUrls: ['contacts-detail.component.css'],
-  directives: [EmailValidatorDirective]
+  directives: [EmailValidator]
 })
 export class ContactsDetailComponent implements OnInit {
   private contact: Contact = <Contact>{ address: {} };
