@@ -1,3 +1,11 @@
 .collection-item a {
     color: black;
+    display: block;
+    margin: -10px -20px;
+    padding: 10px 20px;
+}
+
+.collection-item:hover {
+    background-color: #CCCCCC;
+    display: block;
 }
