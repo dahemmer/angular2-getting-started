@@ -4,7 +4,8 @@ This repository contains the application which was demoed during the *Getting st
 
 ## Prerequisites
 
-To run the application you will need to install [Node](https://nodejs.org/en/download/) version 4 or greater. When installed, you can verify the versions by executing the following commands in your command line of choice:
+To run the application you will need to install [Node](https://nodejs.org/en/download/) version 4 or greater. 
+When installed, you can verify the versions by executing the following commands in your command line of choice:
 
 ```
 node -v
@@ -43,5 +44,7 @@ The application is now up and running. Open up your browser at `http://localhost
 ## Useful resources
 
 [angular.io](https://angular.io)
+
 [thoughtram.io](http://thoughtram.io/)
+
 [toddmotto.com](https://toddmotto.com)
